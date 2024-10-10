@@ -14,10 +14,10 @@ public class Employee2Sorted {
 	        employees.add(new Employee2("Employee3", 60000));
 	        employees.add(new Employee2("Employee4", 80000));
  
-	        
 	        List<Employee2> sortedEmployees = employees.stream()
-                    .sorted(Comparator.comparingDouble(Employee2::getSalary).reversed())
-                    .toList();
+	                .sorted((e1, e2) -> Double.compare(e2.getSalary(), e1.getSalary()))
+	                .toList();
+	       
 
 for (Employee2 employee : sortedEmployees) {
 System.out.println("Name: " + employee.getName() + ", Salary: " + employee.getSalary());
